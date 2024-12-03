@@ -1,0 +1,74 @@
+<template>
+  <lightning-card
+    title="SNS投稿文ジェネレーター"
+    icon-name="standard:quick_text"
+  >
+    <template if:true={isLoading}>
+      <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+        <div class="post-container">
+          <div class="post-header">
+            <div class="avatar">Demo</div>
+            <div class="user-info">
+              <div class="slds-text-title_bold">Demo Company</div>
+              <div class="slds-text-title">@democompany</div>
+            </div>
+          </div>
+          <div class="caption">
+            <lightning-formatted-rich-text
+              value={formattedContent}
+            ></lightning-formatted-rich-text>
+          </div>
+          <div class="timestamp">1時間前</div>
+        </div>
+      </div>
+      <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+        <div class="configure-container">
+          <lightning-textarea
+            lwc:ref="topic"
+            label="トピック"
+          ></lightning-textarea>
+          <lightning-radio-group
+            lwc:ref="language"
+            label="言語"
+            options={writingLanguages}
+            type="button"
+          ></lightning-radio-group>
+          <lightning-radio-group
+            lwc:ref="style"
+            label="スタイル"
+            options={writingStyles}
+            type="button"
+          ></lightning-radio-group>
+          <lightning-slider
+            lwc:ref="length"
+            label="文章量(文字数)"
+            max="400"
+            step="10"
+          ></lightning-slider>
+          <lightning-slider
+            lwc:ref="hashTags"
+            label="ハッシュタグ"
+            value={hashTags}
+            max="10"
+          ></lightning-slider>
+          <lightning-radio-group
+            lwc:ref="llm"
+            label="LLM"
+            options={modelOptions}
+            type="button"
+          ></lightning-radio-group>
+          <div class="slds-text-align_center slds-p-vertical_large">
+            <lightning-button
+              variant="brand"
+              label="文章作成"
+              onclick={clickedGenerate}
+            ></lightning-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>

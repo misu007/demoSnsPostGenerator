@@ -1,0 +1,45 @@
+.post-container {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  width: 480px;
+}
+
+.configure-container {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  gap: 12px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  font-family: cursive;
+  font-size: 10px;
+  line-height: 32px;
+}
+
+.caption {
+  padding: 0 16px;
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.timestamp {
+  padding: 0 16px;
+  margin: 12px 0;
+  font-size: 12px;
+  color: #8e8e8e;
+}
